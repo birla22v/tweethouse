@@ -1,0 +1,12 @@
+<h1>Shouts yo</h1>
+<% @shouts.each do |shout| %>
+	<ul>
+		<li> Shout: <%= shout.body %></li>
+		<li> <%= shout.created_at %></li>
+	</ul>
+
+
+<%= link_to	'New Shout', new_user_shout_path(shout) %>
+<%= link_to 'Home', users_path %>
+<%= link_to 'back', :back %>
+<% end %>
