@@ -2,5 +2,5 @@
 
 <%= render 'new_edit_form' %>
 
-<%= link_to 'Show', user_shout_path(@user,@shout) %> |
+<%= link_to 'Show', user_shout_path(current_user,@shout) %> |
 <%= link_to 'Back', :back %>

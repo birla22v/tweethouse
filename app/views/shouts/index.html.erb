@@ -1,14 +1,24 @@
 <h1>Shouts yo</h1>
+
+<% if current_user == @user %>
+	<%= link_to	'New Shout', new_user_shout_path(current_user) %> |
+<% end %>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'back', :back %>
+
+<h2> User: <%= @user.username %> </h2>
 <% @shouts.each do |shout| %>
 	<ul>
 		<li> Shout: <%= shout.body %></li>
 		<li> <%= shout.created_at %></li>
 	</ul>
 
-
-<%= link_to	'New Shout', new_user_shout_path(@user) %> |
-<%= link_to 'Home', users_path %> |
-<%= link_to 'back', :back %> |
-<%= button_to 'Delete shout', user_shout_path(@user, shout), :method => :delete %>
-
+	<% if current_user == shout.user %>
+		<%= button_to 'Delete shout', 
+					  user_shout_path(current_user, shout), 
+					  :method => :delete %>
+		<%= button_to 'edit shout', 
+					  edit_user_shout_path(current_user, shout),
+					  :method => :get %>
+	<% end %>
 <% end %>

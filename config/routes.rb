@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :users, :only => [:new, :create, :destroy, :index] do
+  devise_for :users, :skip => [:user]
+  
+  resources :users, :only => [:new, :create, :destroy] do
     resources :shouts, :only => [:new, :create, :show, :destroy, :index, :edit, :update]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
