@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<ul class="hmenu">
+  <li> <%= render 'users/menu/registration_items' %> </li>
+  <li> <%= render 'users/menu/login_items' %> </li>
+</ul>
 
+<p class="notice"> <%= notice %> </p>
+<p class="alert"> <%= alert %> </p>
 <%= yield %>
 
 </body>
