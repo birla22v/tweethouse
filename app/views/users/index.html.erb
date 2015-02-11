@@ -1,4 +1,7 @@
 <h1>Welcome to TweetHouse!</h1>
+<% if user_signed_in? %>
+<h5>logged in as: <%= current_user.username %></h5>
+<% end %>
 
 <ul>
   <%  @users.each do |user| %>
@@ -9,5 +12,3 @@
   </li>
   <%  end  %>
 </ul>
-
-<%= link_to 'Back', :back %>| <%= link_to 'New User', new_user_registration_path %>
