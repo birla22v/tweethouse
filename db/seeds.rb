@@ -1,7 +1,41 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Shout.create!([
+  {user_id: 2, body: "testing shout 2"},
+  {user_id: 1, body: "please workalksnf"},
+  {user_id: 1, body: "please work"},
+  {user_id: 1, body: "please work"},
+  {user_id: 1, body: "hey it works"},
+  {user_id: 1, body: "ksagasglnk"},
+  {user_id: 1, body: "ksagasg"},
+  {user_id: 1, body: "ksagasg"},
+  {user_id: 1, body: "a;lsgamga"},
+  {user_id: 1, body: "a;lsgamga"},
+  {user_id: 2, body: "testing${x}"},
+  {user_id: 2, body: "testing${x}"},
+  {user_id: 2, body: "testing${x}"},
+  {user_id: 2, body: "testing${x}"},
+  {user_id: 2, body: "testing${x}"},
+  {user_id: 1, body: "testing Shout"},
+  {user_id: 2, body: "testing shout 2"},
+  {user_id: 1, body: "please work!@LIHERUIQWFKB"},
+  {user_id: 1, body: "please work!@LIB"},
+  {user_id: 1, body: "please work!@LIBksdn"},
+  {user_id: 1, body: "please work!@LIBksdn"},
+  {user_id: 1, body: "ksagasglnk"},
+  {user_id: 1, body: "ksagasg"},
+  {user_id: 1, body: "ksagasg"},
+  {user_id: 1, body: "a;lsgamga"},
+  {user_id: 1, body: "a;lsgamga"},
+  {user_id: 2, body: "testing$"},
+  {user_id: 1, body: "please work"},
+  {user_id: 1, body: "please work!aknfal"},
+  {user_id: 1, body: "safm,bAsvklas"},
+  {user_id: 3, body: "Brian>Brit"},
+  {user_id: 3, body: "Brian > 10 Brits"},
+  {user_id: 3, body: "Brian > 20 Brits"},
+  {user_id: 3, body: "djgnao"},
+  {user_id: 1, body: "wlfak"}
+])
+User.create!([
+  {username: "brossetti1", password: "heythere", email: "ilovehack@hack.com"},
+  {username: "brit(isababy)", password: "babybrit", email: "brit@brit.com"}
+])

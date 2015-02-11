@@ -6,7 +6,9 @@
 	</ul>
 
 
-<%= link_to	'New Shout', new_user_shout_path(shout) %>
-<%= link_to 'Home', users_path %>
-<%= link_to 'back', :back %>
+<%= link_to	'New Shout', new_user_shout_path(@user) %> |
+<%= link_to 'Home', users_path %> |
+<%= link_to 'back', :back %> |
+<%= button_to 'Delete shout', user_shout_path(@user, shout), :method => :delete %>
+
 <% end %>

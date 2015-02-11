@@ -5,8 +5,9 @@
 <ul>
   <%  @users.each do |user| %>
   <li>Hi there, <%= user.username %>.
-    <%# =  link_to "Your Shouts", user_shouts_path(user) %> |
-    <%=  link_to "Delete Account", user_path(user), method: :delete %>
+    <%=  link_to "Your Shouts", user_shouts_path(user) %> |
+    <%=  link_to "Delete Account", user_path(user), method: :delete %> |
+    <%=  link_to "New Shout", new_user_shout_path(user) %>
   </li>
   <%  end  %>
 </ul>
