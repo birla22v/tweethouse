@@ -1,12 +1,14 @@
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :only => [:destroy]
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.create(user_params)
-    redirect_to :action => :index
+    redirect_to :action => :index 
   end
 
   def index

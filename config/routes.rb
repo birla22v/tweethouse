@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users, :skip => [:user]
+  
   resources :users, :only => [:new, :create, :destroy, :index] do
     resources :shouts, :only => [:new, :create, :show, :destroy, :index, :edit, :update]
   end
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
