@@ -5,7 +5,9 @@ class ShoutsController < ApplicationController
 
 
   def index
-    @shouts = @user.shouts
+    # @shouts = @user.shouts
+    @shouts = @user.shouts.paginate(:page => params[:page], :per_page => 5).order('created_at desc')
+
   end
 
   def new
@@ -37,8 +39,8 @@ class ShoutsController < ApplicationController
   end
 
   def edit
-    if current_user.id == @shout.user_id  
-      render :edit 
+    if current_user.id == @shout.user_id
+      render :edit
     else
       flash[:alert] = "you cant edit a shout thats not your own."
     end

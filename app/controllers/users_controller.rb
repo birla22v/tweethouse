@@ -13,8 +13,16 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
-  end
+    #@users = User.all
+  #  @users = Kaminari.paginate_array(User.order("username").page(params[:page]))
+    # myarray = User.all
+    # @users = Kaminari.paginate_array(myarray).page(params[:page])
+    # @users = User.order("name").page(params[:page])
+    # @users = User.order(:username).page params[:page]
+    # @users = User.paginate_array(User.all).page(params[:page]).per(5)
+    @users = User.paginate(:page => params[:page], :per_page => 5).order('username desc')
+
+    end
 
   def destroy
       if current_user == @user
@@ -44,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    if current_user != @user 
+    if current_user != @user
       current_user.unfollow!(@user)
     else
       flash[:alert] = "Can't do that"
@@ -55,7 +63,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
   end
 
   def user_params
