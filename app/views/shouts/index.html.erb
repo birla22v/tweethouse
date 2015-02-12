@@ -4,7 +4,19 @@
 	<%= link_to	'New Shout', new_user_shout_path(current_user) %> |
 <% end %>
 <%= link_to 'Home', root_path %> |
-<%= link_to 'back', :back %>
+<%= link_to 'Back', :back %> |
+<%= link_to 'Followers', followers_path %> |
+<%= link_to 'Following', following_path %>
+
+<% if current_user!=@user %>
+	<% if current_user && current_user.follows?(@user) %>
+		| <%= link_to 'Unfollow', unfollow_path(@user), method: :delete %>
+	<% elsif current_user && !current_user.follows?(@user)%>
+		| <%= link_to 'Follow', follow_path(@user), method: :put%>
+	<% else %>
+	<% end %>
+<%end%>
+
 
 <h2> User: <%= @user.username %> </h2>
 <% @shouts.each do |shout| %>
@@ -14,10 +26,10 @@
 	</ul>
 
 	<% if current_user == shout.user %>
-		<%= button_to 'Delete shout', 
-					  user_shout_path(current_user, shout), 
+		<%= button_to 'Delete shout',
+					  user_shout_path(current_user, shout),
 					  :method => :delete %>
-		<%= button_to 'edit shout', 
+		<%= button_to 'edit shout',
 					  edit_user_shout_path(current_user, shout),
 					  :method => :get %>
 	<% end %>
