@@ -1,3 +1,6 @@
+<div class="jumbotron" style="background: url(http://thumbs.dreamstime.com/z/angry-man-shouts-vector-illustration-guy-shouting-35837064.jpg) no-repeat center center; background-size: cover; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover">
+  <div class="container">
+
 <h1>Welcome to TweetHouse!</h1>
 <% if user_signed_in? %>
 <h5>logged in as: <%= current_user.username %></h5>
@@ -12,3 +15,39 @@
   </li>
   <%  end  %>
 </ul>
+    <div class="row">
+  	  <div class="col-md-7"></div>	
+  	  <div class="col-md-3"> <!-- start login form, col-md-3 -->
+  	    <form>
+  	      <div class="form-group">
+  	        <label for="InputEmail1"></label>
+  	        <input type="email" class="form-control" id="InputEmail1" placeholder="Enter Email">
+  	      </div>
+  	      <div class="form-group">
+  	        <label for="InputPassword1"></label>
+  	        <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+  	      </div>
+	    </form>
+	    <div class="signup"> <!-- start sign up form -->
+	      <h3>New to Shouts? <small>sign up!</small></h3>
+	      <form>
+	      	 <div class="form-group">
+  	          <label for="InputEmail1"></label>
+  	          <input type="text" class="form-control" id="InputEmail1" placeholder="Enter Username">
+  	        </div>
+  	        <div class="form-group">
+  	          <label for="InputEmail1"></label>
+  	          <input type="email" class="form-control" id="InputEmail1" placeholder="Enter Email">
+  	        </div>
+  	        <div class="form-group">
+  	          <label for="InputPassword1"></label>
+  	          <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+  	        </div> 
+  	       	<button type="button" class="btn btn-primary">Sign up for Shouts!</button>
+	      </form>
+	    </div> <!-- end sign up form -->
+  	  </div> <!-- end login form, col-md-3 -->
+  	  <div class="col-md-2"></div>
+  	</div>
+  </div>
+</div>
