@@ -2,13 +2,15 @@
 <% if user_signed_in? %>
 <h5>logged in as: <%= current_user.username %></h5>
 <% end %>
-
+<%= will_paginate @users %>
 <ul>
   <%  @users.each do |user| %>
   <li>Hi there, <%= user.username %>.
-    <%=  link_to "Your Shouts", user_shouts_path(user) %> |
-    <%=  link_to "Delete Account", user_path(user), method: :delete %> |
-    <%=  link_to "New Shout", new_user_shout_path(user) %>
+    <%=  link_to "Shouts", user_shouts_path(user) %>
+    <% if user==current_user %>
+    | <%=  link_to "Delete Account", user_path(user), method: :delete %>
+    | <%=  link_to "New Shout", new_user_shout_path(user) %>
+    <% end %>
   </li>
   <%  end  %>
 </ul>
