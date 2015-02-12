@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessor :private
   has_many :shouts
 
   has_many :relationships, foreign_key: "follower_id"
@@ -17,7 +16,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :password, presence: true
   validates :email, presence: true
-
+  
 
        # Alternately
      def follows?(other_user)

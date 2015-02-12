@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if current_user != @user
+    if current_user != @user && @user.private == false
       current_user.follow!(@user)
     else
       flash[:alert] = "Can't do that"
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    if current_user != @user
+    if current_user != @user 
       current_user.unfollow!(@user)
     else
       flash[:alert] = "Can't do that"
