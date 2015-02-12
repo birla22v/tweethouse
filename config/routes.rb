@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :skip => [:user]
-  
+
   resources :users, :only => [:new, :create, :destroy] do
     resources :shouts, :only => [:new, :create, :show, :destroy, :index, :edit, :update]
   end
@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: 'users#index'
+  get '/users/:user_id/followers', to: 'users#followers', as: 'followers'
+  get '/users/:user_id/following', to: 'users#following', as: 'following'
+  put '/users/:user_id/follow', to: 'users#follow', as: 'follow'
+  delete '/users/:user_id/followers', to: 'users#unfollow', as: 'unfollow'
+  #
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
